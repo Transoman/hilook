@@ -1,0 +1,30 @@
+.lang-switch
+  margin: 0
+  padding: 0
+  list-style: none
+  display: flex
+  align-items: center
+  li
+    font-size: 12px
+    text-transform: uppercase
+    &::after
+      content: ' | '
+      margin-right: 3px
+    &:last-child
+      &::after
+        content: none
+    &.is-active
+      a
+        position: relative
+        color: $accent
+        &::after
+          content: ''
+          position: absolute
+          top: 100%
+          left: 0
+          right: 0
+          border-bottom: 1px dotted $accent
+  a
+    color: $main-color
+    &:hover, &:focus
+      color: $accent

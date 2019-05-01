@@ -1,0 +1,28 @@
+.phone
+  display: flex
+  align-items: center
+  &__left
+    flex-shrink: 0
+    margin-right: 25px
+  &__descr
+    max-width: 205px
+    margin: 0
+    font-size: 14px
+    font-weight: 300
+  &__tel
+    display: block
+    font-size: 21px
+    font-weight: 700
+    color: $header-link-color
+    white-space: nowrap
+    +r(576)
+      font-size: 16px
+  &__callback
+    position: relative
+    &::after
+      content: ''
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+      border-bottom: 2px dotted $accent

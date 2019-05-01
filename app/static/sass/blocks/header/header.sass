@@ -1,0 +1,54 @@
+.header
+  background-color: #fff
+  .container
+    position: relative
+    display: flex
+    align-items: center
+  &__top
+    padding: 15px 0
+    border-bottom: 1px solid $line-color
+  &__logo
+    margin-right: 80px
+    +r(576)
+      margin-right: 15px
+  &__lang-switch
+    margin:
+      right: 20px
+      left: auto
+    +r(1259)
+      margin-right: 50px
+  &__bottom
+    padding: 10px 0 25px
+  &__menu-catalog
+    margin-right: 60px
+    +r(1259)
+      margin-right: 30px
+  &__small-search
+    margin-right: 40px
+    +r(767)
+      margin-left: auto
+    +r(576)
+      margin-right: 20px
+  &__phone
+    +r(992)
+      margin-left: auto
+      margin-right: 20px
+      .phone
+        &__left
+          display: none
+        &__right
+          text-align: right
+    +r(767)
+      margin-right: 0
+    +r(576)
+      margin-left: 0
+  &__price-list
+    padding: 11px 25px
+    margin-left: auto
+    +r(992)
+      margin-left: 0
+    +r(767)
+      display: none
+  &__nav
+    +r(1259)
+      display: none

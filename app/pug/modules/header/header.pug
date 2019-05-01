@@ -1,0 +1,62 @@
+header.header
+  .header__top
+    .container
+      a.logo.header__logo
+        img(src="static/images/general/logo.png", alt="HiLook")
+        p.logo__descr Гарантия <br>сильного бренда
+      nav.nav.header__nav
+        ul.nav-list
+          li
+            a(href="#") Главная
+          li
+            a(href="#") Где купить?
+          li
+            a(href="#") Поддержка
+          li
+            a(href="#") О компании
+          li
+            a(href="#") Блог компании
+          li
+            a(href="#") Контакты
+      ul.lang-switch.header__lang-switch
+        li.is-active
+          a(href="#") RU
+        li
+          a(href="#") ENG
+
+      button(type="button").nav-toggle
+        span.nav-toggle__line
+
+  .header__bottom
+    .container
+      .menu-catalog.header__menu-catalog
+        .menu-catalog__head
+          +icon('menu', 'menu-catalog__icon')
+          span.menu-catalog__title Каталог товаров
+        .menu-catalog__body
+          ul.menu-catalog__list
+            li
+              a(href="#") IP-оборудование
+            li
+              a(href="#") HDTV оборудование
+            li
+              a(href="#") Видеодомофоны
+            li
+              a(href="#") Видеодомофоны
+
+      .small-search.header__small-search
+        button(type="button").small-search__toggle
+          +icon('search', 'small-search__btn-icon')
+        form(action="#").small-search__form
+          input(type="text", name="s", placeholder="Поиск по сайту" , required)
+          button(type="submit").small-search__btn
+            +icon('search', 'small-search__btn-icon')
+
+      .phone.header__phone
+        .phone__left
+          p.phone__descr Бесплатная служба технической поддержки для жителей РК:
+        .phone__right
+          a(href="tel:88000805880").phone__tel 8 (800) 080-58-80
+          a(href="#").phone__callback.callback_open заказать звонок
+
+      a(href="#").btn.btn--transp.header__price-list Скачать прайс лист

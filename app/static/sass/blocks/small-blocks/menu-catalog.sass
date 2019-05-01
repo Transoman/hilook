@@ -1,0 +1,43 @@
+.menu-catalog
+  position: relative
+  &:hover
+    .menu-catalog
+      &__body
+        opacity: 1
+        visibility: visible
+  &__head
+    display: flex
+    align-items: center
+    cursor: pointer
+  &__title
+    white-space: nowrap
+    +r(576)
+      display: none
+  &__icon
+    width: 26px
+    height: 26px
+    fill: $accent
+    margin-right: 20px
+    +r(576)
+      margin-right: 0
+  &__body
+    position: absolute
+    top: calc(100% + 10px)
+    left: 0
+    width: 270px
+    background-color: #fff
+    box-shadow: 0 5px 15px rgba(#000, 0.1)
+    z-index: 1
+    opacity: 0
+    visibility: hidden
+    +trans
+  &__list
+    padding: 0
+    margin: 0
+    list-style: none
+    a
+      display: block
+      padding: 10px 15px
+      &:hover
+        background-color: $accent
+        color: #fff
