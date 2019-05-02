@@ -1,0 +1,35 @@
+@import 'advantages-statistic'
+
+.advantages
+  &__wrap
+    display: flex
+    +r(992)
+      flex-direction: column-reverse
+  &__left
+    flex-shrink: 0
+    width: 270px
+    padding-right: 15px
+    +r(992)
+      width: 100%
+      padding: 0
+  &__right
+    flex-grow: 1
+    +r(1259)
+      margin-bottom: 50px
+    +r(767)
+      margin-bottom: 30px
+  &__content
+    margin-bottom: 50px
+    .section-title
+      margin-bottom: 25px
+      +r(992)
+        text-align: center
+    p
+      font-size: 18px
+      line-height: 1.66
+      color: $dove-gray
+      strong
+        font-weight: 800
+        color: inherit
+        span
+          color: $accent

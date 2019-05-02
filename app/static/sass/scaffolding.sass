@@ -59,8 +59,21 @@ h1
   +r(576)
     font-size: 38px
 
+h2
+  font-size: 36px
+  +r(767)
+    font-size: 32px
+  +r(576)
+    font-size: 30px
+
 b, strong
   color: $header-link-color
+
+section
+  position: relative
+  padding: 90px 0 100px
+  +r(767)
+    padding: 40px 0 50px
 
 /* Hidden element */
 .visually-hidden
@@ -96,6 +109,7 @@ b, strong
   transition: all .25s ease
   text-transform: uppercase
   letter-spacing: 0.5px
+  box-shadow: 0 10px 25px rgba($accent, 0.35)
   &:hover
     background-color: lighten($accent, 5%)
     color: #fff
@@ -115,6 +129,7 @@ b, strong
     text-transform: none
     letter-spacing: 0
     font-size: 14px
+    box-shadow: none
     &:hover
       border-color: lighten($accent, 5%)
     &:focus
@@ -144,3 +159,11 @@ b, strong
 
 .content
   flex: 1 0 auto
+
+.text-center
+  text-align: center
+
+.section-title
+  margin-bottom: 40px
+  span
+    color: $accent
