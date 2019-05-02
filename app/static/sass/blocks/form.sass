@@ -10,3 +10,49 @@ input[type="text"]
   &:focus
     outline: none
     border-color: $accent
+
+.form-inline
+  display: flex
+  align-items: center
+  & > *:not(:last-child)
+    margin-right: 10px
+
+.check
+  position: relative
+  padding-left: 30px
+  margin: 0
+  font-size: 12px
+  font-weight: 300
+  color: $dove-gray
+  cursor: pointer
+  +trans
+  &:hover
+    color: $accent
+  &__input
+    @extend .visually-hidden
+    &:checked ~ .check__box
+      &::before
+        opacity: 1
+        visibility: visible
+  &__box
+    position: absolute
+    left: 0
+    top: -2px
+    width: 20px
+    height: 20px
+    border-radius: 4px
+    border: 1px solid $border-color
+    &::before
+      content: ''
+      position: absolute
+      top: 2px
+      left: 6px
+      width: 7px
+      height: 10px
+      border: 2px solid $accent
+      border-top: 0
+      border-left: 0
+      transform: rotate(45deg)
+      opacity: 0
+      visibility: hidden
+      +trans

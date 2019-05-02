@@ -1,0 +1,26 @@
+.filter
+  form(action="#")
+    .filter__wrap
+      h4.filter__title Выберите свой вариант
+      .filter__item
+        span.filter__item-title Стоимость,руб
+        .form-inline
+          input(type="text", name="price_from", min="400" placeholder="от").filter__input-price.filter__input-price--from
+          input(type="text", name="price_to", max="9900" placeholder="до").filter__input-price.filter__input-price--to
+        .filter__price-range
+      .filter__item
+        span.filter__item-title Наличие
+        label.check
+          input(type="checkbox", name="in_stock").check__input
+          span.check__box
+          | В наличии
+      .filter__item
+        span.filter__item-title Город
+        select(name="city").filter__city.select2
+          option(value="Алматы") Алматы
+          option(value="Нур-Султан") Нур-Султан
+          option(value="Шымкент") Шымкент
+          option(value="Караганда") Караганда
+          option(value="Актобе") Актобе
+          option(value="Тараз") Тараз
+    input(type="submit", value="Применить").btn.btn--transp.filter__btn

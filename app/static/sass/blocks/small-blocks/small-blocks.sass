@@ -15,3 +15,85 @@
   text-transform: uppercase
   background-color: $cobalt
   border-radius: 4px
+
+.noUi-target
+  border: 0
+  box-shadow: none
+  height: 3px
+  .noUi-handle
+    top: -8px
+    left: 9px
+    width: 18px
+    height: 18px
+    border-radius: 50%
+    border-color: $border-color
+    background-color: #fff
+    box-shadow: 0 2px 10px rgba($shadow-color, 0.08)
+    cursor: pointer
+    &::before, &::after
+      display: none
+    &:focus
+      outline: none
+    &.noUi-active
+      border-color: $accent
+html:not([dir=rtl]) .noUi-horizontal .noUi-handle
+  right: -9px
+.noUi-connect
+  background-color: $accent
+.noUi-value
+  font-size: 12px
+  font-weight: 300
+  color: #999
+.noUi-marker
+  display: none
+.noUi-pips-horizontal
+  height: 30px
+
+.select2-container
+  .select2-choice
+    background: #fff
+    border-color: $border-color
+    color: #999
+    font-size: 12px
+    abbr
+      background: none
+    .select2-arrow
+      width: 25px
+      border: 0
+      background: $accent
+      border-radius: 0 4px 4px 0
+      b
+        position: absolute
+        top: 50%
+        left: 50%
+        width: 9px
+        height: 9px
+        border: 2px solid #fff
+        border-top: 0
+        border-left: 0
+        margin:
+          top: -6px
+          left: -4.5px
+        transform: rotate(45deg)
+        background: none
+        +trans
+        // border-color: #888 transparent transparent transparent
+        // border-style: solid
+        // border-width: 5px 4px 0 4px
+        // height: 0
+        // left: 50%
+        // margin-left: -4px
+        // margin-top: -2px
+        // position: absolute
+        // top: 50%
+        // width: 0
+  &.select2-dropdown-open
+    .select2-choice
+      background: #fff
+    .select2-arrow
+      b
+        top: 14px
+        transform: rotate(225deg)
+.select2-search
+  input
+    background-image: none

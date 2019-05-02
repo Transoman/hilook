@@ -1,5 +1,7 @@
 global.jQuery = require('jquery');
-var svg4everybody = require('svg4everybody');
+var svg4everybody = require('svg4everybody'),
+noUiSlider = require('nouislider'),
+select2 = require('select2-browserify');
 
 
 jQuery(document).ready(function($) {
@@ -65,6 +67,47 @@ jQuery(document).ready(function($) {
   };
 
   menuToggle();
+
+  // Price range
+  var priceRange = function() {
+    var range = document.querySelector('.filter__price-range');
+
+    if (range) {
+      var minInput = document.querySelector('.filter__input-price--from');
+      var maxInput = document.querySelector('.filter__input-price--to');
+      var minPrice =  parseInt(minInput.getAttribute('min'));
+      var maxPrice = parseInt(maxInput.getAttribute('max'));
+      noUiSlider.create(range, {
+        range: {
+          'min': minPrice,
+          'max': maxPrice
+        },
+        start: [minPrice, maxPrice],
+        connect: true,
+        pips: {
+          mode: 'range',
+          density: 100
+        }
+      });
+
+      range.noUiSlider.on('update', function(values) {
+        minInput.value = Math.floor(values[0]);
+        maxInput.value = Math.floor(values[1]);
+      });
+
+      minInput.addEventListener('change', function() {
+        range.noUiSlider.set([this.value, null]);
+      });
+
+      maxInput.addEventListener('change', function() {
+        range.noUiSlider.set([null, this.value]);
+      });
+    }
+  };
+
+  priceRange();
+
+  $('.select2').select2();
 
   // Modal
   // $('.modal').popup({
