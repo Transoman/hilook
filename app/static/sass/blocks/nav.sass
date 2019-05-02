@@ -6,6 +6,10 @@
   align-items: center
   & > *:not(:last-child)
     margin-right: 35px
+  li
+    &.is-active
+      a
+        color: $accent
   a
     color: $main-color
     &:hover, &:focus
@@ -23,7 +27,7 @@
   outline: none
   border: none
   background: none
-  z-index: 101
+  z-index: 1
   cursor: pointer
   +transition
   &:focus

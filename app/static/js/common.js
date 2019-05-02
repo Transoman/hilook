@@ -3,14 +3,6 @@ var svg4everybody = require('svg4everybody');
 
 
 jQuery(document).ready(function($) {
-
-  // Toggle nav menu
-  $('.nav-toggle').on('click', function (e) {
-    e.preventDefault();
-    $(this).toggleClass('active');
-    $('.header__nav').toggleClass('open');
-  });
-
   // Toggle search form
   var searchToggle = function() {
     $('.small-search__toggle').click(function(e) {
@@ -41,6 +33,38 @@ jQuery(document).ready(function($) {
   };
 
   searchToggle();
+
+  // Toggle mobile menu
+  var menuToggle = function() {
+
+    $('.nav-toggle').on('click', function (e) {
+      e.preventDefault();
+      $('.mobile-menu').addClass('is-active');
+      $('.mobile-menu-overlay').addClass('is-active');
+    });
+
+    $('.mobile-menu__close').click(function(e) {
+      e.preventDefault();
+      $('.mobile-menu').removeClass('is-active');
+      $('.mobile-menu-overlay').removeClass('is-active');
+    });
+
+    $('.mobile-menu-overlay').click(function(e) {
+      e.preventDefault();
+      $('.mobile-menu').removeClass('is-active');
+      $('.mobile-menu-overlay').removeClass('is-active');
+    });
+
+    document.onkeydown = function(evt) {
+      evt = evt || window.event;
+      if (evt.keyCode == 27) {
+        $('.mobile-menu').removeClass('is-active');
+        $('.mobile-menu-overlay').removeClass('is-active');
+      }
+    };
+  };
+
+  menuToggle();
 
   // Modal
   // $('.modal').popup({

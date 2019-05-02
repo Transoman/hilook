@@ -35,9 +35,14 @@
     padding: 0
     margin: 0
     list-style: none
+    li
+      &.is-active
+        a
+          background-color: $accent
+          color: #fff
     a
       display: block
       padding: 10px 15px
-      &:hover
+      &:hover, &:focus
         background-color: $accent
         color: #fff

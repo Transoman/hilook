@@ -6,7 +6,7 @@ header.header
         p.logo__descr Гарантия <br>сильного бренда
       nav.nav.header__nav
         ul.nav-list
-          li
+          li.is-active
             a(href="#") Главная
           li
             a(href="#") Где купить?
@@ -35,7 +35,7 @@ header.header
           span.menu-catalog__title Каталог товаров
         .menu-catalog__body
           ul.menu-catalog__list
-            li
+            li.is-active
               a(href="#") IP-оборудование
             li
               a(href="#") HDTV оборудование
@@ -60,3 +60,25 @@ header.header
           a(href="#").phone__callback.callback_open заказать звонок
 
       a(href="#").btn.btn--transp.header__price-list Скачать прайс лист
+
+  .mobile-menu
+    .mobile-menu__head
+      h4.mobile-menu__title Меню
+      button(type="button").mobile-menu__close
+    .mobile-menu__body
+      ul.mobile-menu__list
+        li.is-active
+          a(href="#") Главная
+        li
+          a(href="#") Где купить?
+        li
+          a(href="#") Поддержка
+        li
+          a(href="#") О компании
+        li
+          a(href="#") Блог компании
+        li
+          a(href="#") Контакты
+
+      a(href="#").btn.btn--transp.mobile-menu__price-list Скачать прайс лист
+  .mobile-menu-overlay

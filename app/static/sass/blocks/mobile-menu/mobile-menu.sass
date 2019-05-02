@@ -1,0 +1,79 @@
+.mobile-menu
+  position: fixed
+  top: 0
+  right: 0
+  z-index: 10
+  width: 320px
+  height: 100%
+  padding: 20px 20px 40px
+  background-color: #fff
+  box-shadow: 0 5px 15px rgba(#000, 0.1)
+  +trans
+  transform: translateX(100%)
+  &.is-active
+    transform: translateX(0)
+  &__head
+    display: flex
+    align-items: center
+    margin-bottom: 20px
+  &__title
+    margin: 0
+    font-size: 18px
+  &__body
+    height: calc(100% - 40px)
+    overflow-y: auto
+    +smooth-scroll
+  &__list
+    margin: 0 0 20px
+    padding: 0
+    list-style: none
+    li
+      margin-bottom: 10px
+      &:last-child
+        margin-bottom: 0
+      &.is-active
+        a
+          color: $accent
+    a
+      font-size: 18px
+      color: $main-color
+      &:hover, &:focus
+        color: $accent
+  &__close
+    position: relative
+    background: none
+    border: 0
+    padding: 0
+    width: 30px
+    height: 30px
+    margin-left: auto
+    &::before, &::after
+      content: ''
+      position: absolute
+      left: 2px
+      width: 25px
+      height: 2px
+      background-color: $accent
+    &::before
+      transform: rotate(45deg)
+    &::after
+      transform: rotate(-45deg)
+
+.mobile-menu-overlay
+  position: relative
+  visibility: hidden
+  opacity: 0
+  z-index: 9
+  +trans
+  &::before
+    content: ''
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 9
+    background-color: rgba(#000, 0.06)
+  &.is-active
+    visibility: visible
+    opacity: 1
