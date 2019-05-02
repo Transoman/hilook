@@ -48,6 +48,20 @@ a
     outline: none
     color: darken($accent, 10%)
 
+h1, h2, h3, h4, h5, h6
+  font-weight: 800
+  color: $header-link-color
+
+h1
+  font-size: 60px
+  +r(992)
+    font-size: 48px
+  +r(576)
+    font-size: 38px
+
+b, strong
+  color: $header-link-color
+
 /* Hidden element */
 .visually-hidden
   position: absolute
@@ -105,6 +119,20 @@ a
       border-color: lighten($accent, 5%)
     &:focus
       border-color: darken($accent, 5%)
+  &--arrow
+    position: relative
+    &::after
+      content: ''
+      display: inline-block
+      vertical-align: top
+      width: 24px
+      height: 9px
+      margin-left: 10px
+      background: url(../images/general/right-arrow.svg) no-repeat center / contain
+      +trans(transform, 0.5s)
+    &:hover, &:focus
+      &::after
+        transform: translateX(10px)
 
 .wrapper
   display: flex
