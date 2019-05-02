@@ -1,0 +1,43 @@
+.icon-card
+  position: relative
+  display: flex
+  flex-direction: column
+  height: calc(100% - 30px)
+  margin-bottom: 30px
+  background-color: #fff
+  border-radius: 10px
+  box-shadow: 0 10px 40px rgba(#282828, 0.08)
+  padding: 135px 15px 30px
+  text-align: center
+  border: 1px solid transparent
+  +trans
+  +r(576)
+    max-width: 270px
+    margin:
+      right: auto
+      left: auto
+  &:hover
+    border-color: $accent
+  &__icon
+    position: absolute
+    top: 50px
+    left: 50%
+    transform: translateX(-50%)
+    width: 70px
+  &__title
+    margin-top: auto
+    font-weight: 700
+    color: $main-color
+  &__link
+    &::after
+      content: ''
+      display: inline-block
+      vertical-align: middle
+      margin-left: 10px
+      width: 22px
+      height: 7px
+      background: url(../images/general/right-arrow-blue.svg) no-repeat center / contain
+      +trans(transform, 0.5s)
+    &:hover
+      &::after
+        transform: translateX(10px)
