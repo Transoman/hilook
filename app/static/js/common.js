@@ -7,31 +7,55 @@ select2 = require('select2-browserify');
 jQuery(document).ready(function($) {
   // Toggle search form
   var searchToggle = function() {
-    $('.small-search__toggle').click(function(e) {
-      e.preventDefault();
-  
-      var input = $('.small-search__form input');
-      $('.small-search__form').toggleClass('is-active');
-      setTimeout(function() {
-        input.focus();
-      }, 200);
-    });
-  
-    $('.small-search__form button[type="submit"]').click(function(e) {
-      e.preventDefault();
-  
-      var input = $('.small-search__form input');
-  
-      if (input.val() == '') {
-        $('.small-search__form').toggleClass('is-active');
-        setTimeout(function() {
-          input.focus();
-        }, 200);
+
+    var searchForm = $('.small-search__form');
+    var searchInput = searchForm.find('input');
+    var searchSubmitBtn = searchForm.find('button[type="submit"]');
+    var matchWidth = window.matchMedia('(max-width: 1259px)');
+
+    var mediaChecker = function() {
+      if (matchWidth.matches) {
+        toggle();
       }
       else {
-        $('.small-search__form').submit();
+        searchForm.removeClass('is-active');
       }
-    });
+    }
+
+    var toggle = function() {
+      $('.small-search__toggle').click(function(e) {
+        e.preventDefault();
+
+        if (searchForm.hasClass('is-active')) {
+          searchForm.removeClass('is-active');
+        }
+        else {
+          searchForm.addClass('is-active');
+          setTimeout(function() {
+            searchInput.focus();
+          }, 200);
+        }
+
+      });
+
+      searchSubmitBtn.click(function(e) {
+        e.preventDefault();
+
+        if (searchInput.val() == '') {
+          searchForm.removeClass('is-active');
+          setTimeout(function() {
+            searchInput.focus();
+          }, 200);
+        }
+        else {
+          searchForm.submit();
+        }
+      });
+    }
+
+    matchWidth.addListener(mediaChecker);
+    mediaChecker();
+
   };
 
   searchToggle();
