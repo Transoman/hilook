@@ -169,7 +169,7 @@ jQuery(document).ready(function($) {
         } else {
           sidebarBtn.removeClass('is-active');
         }
-        if ($(this).scrollTop() > $('.question').offset().top - 600) {
+        if ($(this).scrollTop() > $('.question, .footer').offset().top - 600) {
             sidebarBtn.addClass('invisible');
         } else {
             sidebarBtn.removeClass('invisible');

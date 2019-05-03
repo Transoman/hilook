@@ -1,0 +1,12 @@
+.breadcrumbs
+  padding-top: 10px
+  font-size: 14px
+  a
+    color: $descr-color
+    &:hover, &:focus
+      color: $accent
+    &::after
+      content: ' > '
+      display: inline-block
+      vertical-align: middle
+      margin: 0 5px
