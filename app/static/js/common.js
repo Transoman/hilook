@@ -1,6 +1,8 @@
 global.jQuery = require('jquery');
 var svg4everybody = require('svg4everybody'),
 noUiSlider = require('nouislider'),
+popup = require('jquery-popup-overlay'),
+Imask = require('imask'),
 select2 = require('select2-browserify');
 
 
@@ -181,12 +183,12 @@ jQuery(document).ready(function($) {
   });
 
   // Modal
-  // $('.modal').popup({
-  //   transition: 'all 0.3s',
-  //   onclose: function() {
-  //     $(this).find('label.error').remove();
-  //   }
-  // });
+  $('.modal').popup({
+    transition: 'all 0.3s',
+    onclose: function() {
+      $(this).find('label.error').remove();
+    }
+  });
 
   // SVG
   svg4everybody({});
@@ -390,6 +392,51 @@ jQuery(document).ready(function($) {
     map = new_map( $(this) );
   });
 
-  
+  var inputMask = function() {
+    var inputs = $('input[type="tel"]');
+    var maskOptions = {
+      mask: '+{7} (000) 000-00-00'
+    };
+
+    if (inputs.length) {
+      inputs.each(function(i, el) {
+        new IMask(el, maskOptions);
+      });
+    }
+    
+  };
+
+  inputMask();
+
+  var getProductName = function() {
+    var productName;
+    $('.product-order_open').click(function() {
+      productName = $(this).parents('.product-card').find('.product-card__title').text();
+      $('#product-order input[name="product_name"]').val(productName);
+    });
+  };
+
+  getProductName();
+
+  $('.ajax-form').submit(function(e) {
+    e.preventDefault();
+    var data = $(this).serialize();
+    ajaxSend($('.ajax-form'), data);
+  });
+
+  function ajaxSend(formName, data) {
+    jQuery.ajax({
+      type: "POST",
+      url: "sendmail.php",
+      data: data,
+      success: function() {
+        $(".modal").popup("hide");
+        $("#thanks").popup("show");
+        setTimeout(function() {
+          $(formName).trigger('reset');
+        }, 2000);
+      }
+    });
+  }
 
 });

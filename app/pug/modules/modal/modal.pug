@@ -1,0 +1,55 @@
+#callback.modal
+  button(type="button").modal__close.btn-close.callback_close
+  h3.modal__title Обратный Звонок
+
+  form(action="#").ajax-form
+    input(type="hidden", name="subject", value="Обратный Звонок")
+    .form-group
+      input(type="text", name="name", placeholder="Введите Ваше имя", required).form-field
+    .form-group
+      input(type="tel", name="phone", placeholder="Введите Ваш телефон", required).form-field
+    input(type="submit", value="Заказать").btn
+
+#estimate.modal
+  button(type="button").modal__close.btn-close.estimate_close
+  h3.modal__title Заказ расчета сметы
+
+  form(action="#").ajax-form
+    input(type="hidden", name="subject", value="Заказ расчета сметы")
+    .form-group
+      input(type="text", name="name", placeholder="Введите Ваше имя", required).form-field
+    .form-group
+      input(type="tel", name="phone", placeholder="Введите Ваш телефон", required).form-field
+    input(type="submit", value="Заказать").btn
+
+#product-order.modal
+  button(type="button").modal__close.btn-close.product-order_close
+  h3.modal__title Заказ продукта
+
+  form(action="#").ajax-form
+    input(type="hidden", name="subject", value="Заказ продукта")
+    input(type="hidden", name="product_name", value="")
+    .form-group
+      input(type="text", name="name", placeholder="Введите Ваше имя", required).form-field
+    .form-group
+      input(type="tel", name="phone", placeholder="Введите Ваш телефон", required).form-field
+    input(type="submit", value="Заказать").btn
+
+#question.modal
+  button(type="button").modal__close.btn-close.question_close
+  h3.modal__title Задать вопрос
+
+  form(action="#").ajax-form
+    input(type="hidden", name="subject", value="Заказ на консультацию")
+    .form-group
+      input(type="text", name="name", placeholder="Введите Ваше имя", required).form-field
+    .form-group
+      input(type="tel", name="phone", placeholder="Введите Ваш телефон", required).form-field
+    .form-group
+      textarea(name="message", placeholder="Введите Ваш вопрос").form-field
+    input(type="submit", value="Отправить").btn
+
+#thanks.modal
+  button(type="button").modal__close.btn-close.thanks_close
+  h3.modal__title Спасибо за заказ
+  p Скоро наш менеджер свяжется с Вами!

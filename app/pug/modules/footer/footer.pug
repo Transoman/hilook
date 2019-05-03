@@ -6,7 +6,8 @@ footer.footer
           h3.get-catalog__title Хотите получить каталог?
           p Введите свой емейл и нажмите на кнопку "Получить каталог"
 
-        form(action="#").get-catalog__form
+        form(action="#").get-catalog__form.ajax-form
+          input(type="hidden", name="subject", value="Заявка на каталог")
           .form-inline
             input(type="email", name="email", placeholder="Електронная почта", required).form-field
             input(type="submit", value="Получить каталог").btn

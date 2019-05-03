@@ -48,8 +48,9 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.2.1",
+    "imask": "^5.1.1",
     "jquery": "^3.3.1",
-    "jquery-popup-overlay": "^2.1.0",
+    "jquery-popup-overlay": "^2.1.1",
     "nouislider": "^13.1.5",
     "select2": "^4.0.7-rc.0",
     "select2-browserify": "^3.4.5",
