@@ -1,0 +1,33 @@
+.container
+  .breadcrumbs
+    a(href="#") Главная
+    span Контакты
+
+main.contact
+  .container
+    .row
+      .col-md-6
+        .contact__content
+          h2.section-title Контакты
+          .contact__item.contact__item--address
+            span.contact__label Адрес:
+            p Hikvision Digital Technologiesг Алматы, <br>пр. Достык, 38, офис 303С
+          .contact__item.contact__item--phones
+            span.contact__label Телефоны:
+            a(href="tel:+77272917588") +7 (727) 291-75-88
+            a(href="tel:+77279730667") +7 (727) 973-06-67
+          .contact__item.contact__item--support
+            span.contact__label Бесплатная служба технической поддержки для жителей РК:
+            a(href="tel:88000805880") 8 (800) 080-58-80
+
+          a(href="#").btn.callback_open Позвоните мне
+
+      .col-md-6.order-md-first
+        .contact__map.map
+          .marker(data-lat="43.2522396", data-lng="76.9568796")
+        .map-content
+          .map-content__icon-wrap
+            +icon('pin', 'map-content__icon')
+          span Алматы,пр. Достык, 38, офис 303С
+
+script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmnk4RCDwjSucIJ2WXRnLkuCrsWR4DUM4")
