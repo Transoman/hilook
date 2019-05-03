@@ -1,0 +1,42 @@
+.footer
+  &__top
+    padding: 25px 0 30px
+    border-top: 1px solid $border-color
+    border-bottom: 1px solid $border-color
+    .container
+      +r(992)
+        flex-direction: column
+  .container
+    display: flex
+    align-items: center
+  &__get-catalog
+    width: 85.47%
+    +r(992)
+      width: 100%
+      margin-bottom: 20px
+  &__socials
+    margin-left: auto
+    +r(992)
+      margin: 0 auto
+  &__bottom
+    padding: 15px 0 30px
+    .container
+      +r(767)
+        flex-direction: column
+        text-align: center
+  &__links
+    margin-left: auto
+    +r(767)
+      margin-left: 0
+    & > *:not(:last-child)
+      margin-right: 20px
+    a
+      text-decoration: underline
+
+.copyright
+  flex-shrink: 0
+  margin: 0 20px 0 0
+  font-weight: 300
+  +r(767)
+    margin-right: 0
+    margin-bottom: 20px

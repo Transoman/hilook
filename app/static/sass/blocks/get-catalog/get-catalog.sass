@@ -1,0 +1,39 @@
+.get-catalog
+  display: flex
+  align-items: center
+  +r(767)
+    flex-direction: column
+    text-align: center
+  &__content
+    margin-right: 65px
+    font-weight: 300
+    +r(1259)
+      max-width: 260px
+      margin-right: 30px
+    +r(767)
+      max-width: none
+      margin-right: 0
+      margin-bottom: 20px
+    p
+      margin: 0
+  &__form
+    flex-grow: 1
+    .form-inline
+      +r(480)
+        flex-direction: column
+      & > *:not(:last-child)
+        margin-right: 0
+    .form-field
+      padding:
+        top: 15px
+        bottom: 15px
+      +r(480)
+        border-radius: 5px 5px 0 0
+    .btn
+      width: auto
+      padding: 19px 40px
+      border-radius: 0 5px 5px 0
+      margin-left: -5px
+      +r(480)
+        margin-left: 0
+        border-radius: 0 0 5px 5px

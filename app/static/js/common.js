@@ -167,11 +167,11 @@ jQuery(document).ready(function($) {
         } else {
           sidebarBtn.removeClass('is-active');
         }
-        // if ($(this).scrollTop() > $('.newsletter').offset().top - 800) {
-        //     sidebarBtn.addClass('invisible');
-        // } else {
-        //     sidebarBtn.removeClass('invisible');
-        // }
+        if ($(this).scrollTop() > $('.question').offset().top - 600) {
+            sidebarBtn.addClass('invisible');
+        } else {
+            sidebarBtn.removeClass('invisible');
+        }
       });
     }
   }

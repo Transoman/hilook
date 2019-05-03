@@ -1,1 +1,25 @@
 footer.footer
+  .footer__top
+    .container
+      .get-catalog.footer__get-catalog
+        .get-catalog__content
+          h3.get-catalog__title Хотите получить каталог?
+          p Введите свой емейл и нажмите на кнопку "Получить каталог"
+
+        form(action="#").get-catalog__form
+          .form-inline
+            input(type="email", name="email", placeholder="Електронная почта", required).form-field
+            input(type="submit", value="Получить каталог").btn
+
+      ul.socials.footer__socials
+        li.socials__item
+          a(href="https://instagram.com", target="_blank").socials__link
+            +icon('instagram', 'socials__icon')
+        li.socials__item
+          a(href="https://facebook.com", target="_blank").socials__link
+            +icon('facebook', 'socials__icon')
+  .footer__bottom
+    .container
+      p.copyright Hikvision Digital Technologies &copy; 2019
+      .footer__links
+        a(href="#") Политика обработки персональных даных

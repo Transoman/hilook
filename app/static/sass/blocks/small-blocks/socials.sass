@@ -1,0 +1,20 @@
+.socials
+  margin: 0
+  padding: 0
+  list-style: none
+  display: flex
+  align-items: center
+  li
+    margin-right: 20px
+    &:last-child
+      margin-right: 0
+  &__link
+    &:hover, &:focus
+      .socials
+        &__icon
+          fill: $accent
+  &__icon
+    width: 40px
+    height: 40px
+    fill: #d6d6d6
+    +trans
