@@ -191,4 +191,205 @@ jQuery(document).ready(function($) {
   // SVG
   svg4everybody({});
 
+  function new_map( $el ) {
+
+    // var
+    var $markers = $el.find('.marker');
+
+
+    // vars
+    var args = {
+      zoom		: 16,
+      center		: new google.maps.LatLng(0, 0),
+      mapTypeId	: google.maps.MapTypeId.ROADMAP,
+      // disableDefaultUI: true,
+      styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
+    };
+
+    // create map
+    var map = new google.maps.Map( $el[0], args);
+
+
+    // add a markers reference
+    map.markers = [];
+
+
+    // add markers
+    $markers.each(function(){
+
+      add_marker( $(this), map );
+
+    });
+    // center map
+    center_map( map );
+
+    // return
+    return map;
+
+  }
+
+  function createPopupClass() {
+    /**
+     * A customized popup on the map.
+     * @param {!google.maps.LatLng} position
+     * @param {!Element} content The bubble div.
+     * @constructor
+     * @extends {google.maps.OverlayView}
+     */
+    function Popup(position, content) {
+      this.position = position;
+  
+      content.classList.add('popup-bubble');
+  
+      // This zero-height div is positioned at the bottom of the bubble.
+      var bubbleAnchor = document.createElement('div');
+      bubbleAnchor.classList.add('popup-bubble-anchor');
+      bubbleAnchor.appendChild(content);
+  
+      // This zero-height div is positioned at the bottom of the tip.
+      this.containerDiv = document.createElement('div');
+      this.containerDiv.classList.add('popup-container');
+      this.containerDiv.appendChild(bubbleAnchor);
+  
+      // Optionally stop clicks, etc., from bubbling up to the map.
+      google.maps.OverlayView.preventMapHitsAndGesturesFrom(this.containerDiv);
+    }
+    // ES5 magic to extend google.maps.OverlayView.
+    Popup.prototype = Object.create(google.maps.OverlayView.prototype);
+  
+    /** Called when the popup is added to the map. */
+    Popup.prototype.onAdd = function() {
+      this.getPanes().floatPane.appendChild(this.containerDiv);
+    };
+  
+    /** Called when the popup is removed from the map. */
+    Popup.prototype.onRemove = function() {
+      if (this.containerDiv.parentElement) {
+        this.containerDiv.parentElement.removeChild(this.containerDiv);
+      }
+    };
+  
+    /** Called each frame when the popup needs to draw itself. */
+    Popup.prototype.draw = function() {
+      var divPosition = this.getProjection().fromLatLngToDivPixel(this.position);
+  
+      // Hide the popup when it is far out of view.
+      var display =
+          Math.abs(divPosition.x) < 4000 && Math.abs(divPosition.y) < 4000 ?
+          'block' :
+          'none';
+  
+      if (display === 'block') {
+        this.containerDiv.style.left = divPosition.x + 'px';
+        this.containerDiv.style.top = divPosition.y + 'px';
+      }
+      if (this.containerDiv.style.display !== display) {
+        this.containerDiv.style.display = display;
+      }
+    };
+  
+    return Popup;
+  }
+
+  /*
+  *  add_marker
+  *
+  *  This function will add a marker to the selected Google Map
+  *
+  *  @type	function
+  *  @date	8/11/2013
+  *  @since	4.3.0
+  *
+  *  @param	$marker (jQuery element)
+  *  @param	map (Google Map object)
+  *  @return	n/a
+  */
+
+  function add_marker( $marker, map ) {
+
+    // var
+    var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
+
+    // create marker
+    var marker = new google.maps.Marker({
+      position	: latlng,
+      map			: map,
+    });
+
+    var Popup = createPopupClass();
+    var popup = new Popup(
+      latlng,
+      document.querySelector('.map-content'));
+    popup.setMap(map);
+
+    // add to array
+    map.markers.push( marker );
+
+    // if marker contains HTML, add it to an infoWindow
+    if( $marker.html() )
+    {
+      // create info window
+      var infowindow = new google.maps.InfoWindow({
+        content		: $marker.html()
+      });
+
+      // show info window when marker is clicked
+      google.maps.event.addListener(marker, 'click', function() {
+
+        infowindow.open( map, marker );
+
+      });
+    }
+
+  }
+
+  /*
+  *  center_map
+  *
+  *  This function will center the map, showing all markers attached to this map
+  *
+  *  @type	function
+  *  @date	8/11/2013
+  *  @since	4.3.0
+  *
+  *  @param	map (Google Map object)
+  *  @return	n/a
+  */
+
+  function center_map( map ) {
+
+    // vars
+    var bounds = new google.maps.LatLngBounds();
+
+    // loop through all markers and create bounds
+    $.each( map.markers, function( i, marker ){
+
+      var latlng = new google.maps.LatLng( marker.position.lat(), marker.position.lng() );
+
+      bounds.extend( latlng );
+
+    });
+
+    // only 1 marker?
+    if( map.markers.length == 1 )
+    {
+      // set center of map
+      map.setCenter( bounds.getCenter() );
+      map.setZoom( 14 );
+    }
+    else
+    {
+      // fit to bounds
+      map.fitBounds( bounds );
+    }
+
+  }
+  var map = null;
+
+  $('.map').each(function() {
+    map = new_map( $(this) );
+  });
+
+  
+
 });
