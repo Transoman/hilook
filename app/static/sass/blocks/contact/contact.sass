@@ -11,6 +11,8 @@
       padding-left: 0
     +r(767)
       margin-bottom: 40px
+    +r(480)
+      text-align: center
   &__item
     margin-bottom: 25px
     font-size: 18px
@@ -28,8 +30,14 @@
         display: inline-block
         vertical-align: middle
         margin-right: 30px
+        +r(480)
+          display: block
+          margin-right: 0
+          margin-bottom: 10px
         &:last-child
           margin-right: 0
+          +r(480)
+            margin-bottom: 0
   &__label
     display: block
     margin-bottom: 10px
