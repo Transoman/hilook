@@ -1,0 +1,47 @@
+.product-card
+  display: flex
+  flex-direction: column
+  height: calc(100% - 30px)
+  margin-bottom: 30px
+  padding: 30px
+  border: 1px solid $border-color
+  border-radius: 5px
+  +trans
+  &:hover
+    border-color: $accent
+  &__img-wrap
+    margin-bottom: 30px
+    text-align: center
+  &__body
+    margin-bottom: 10px
+    p
+      color: $descr-color
+  &__title
+    font-size: 16px
+    font-weight: 700
+    text-transform: uppercase
+    a
+      color: inherit
+      &:hover, &:focus
+        color: $accent
+  &__status
+    font-size: 12px
+    font-weight: 300
+    color: $accent
+    &-icon
+      width: 12px
+      height: 9px
+      fill: $accent
+      margin-right: 10px
+      vertical-align: baseline
+  &__bottom
+    display: flex
+    align-items: center
+    margin-top: auto
+    .price
+      margin-right: 15px
+  &__btn
+    width: auto
+    margin-left: auto
+    padding: 10px 20px
+    background-color: rgba($accent, 0.7)

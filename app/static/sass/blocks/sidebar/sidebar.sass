@@ -1,0 +1,53 @@
+.sidebar
+  +r(992)
+    position: fixed
+    left: 0
+    top: 0
+    width: 320px
+    height: 100%
+    padding:
+      top: 50px
+      right: 15px
+      left: 15px
+    z-index: 10
+    background-color: #fff
+    overflow-y: auto
+    +smooth-scroll
+    +trans
+    transform: translateX(-100%)
+    &.is-active
+      transform: translateX(0)
+  &__close
+    display: none
+    padding: 0
+    background: none
+    position: absolute
+    top: 10px
+    right: 10px
+    +r(992)
+      display: block
+
+.sidebar-open
+  display: none
+  position: fixed
+  left: 0
+  top: 100px
+  z-index: 10
+  width: 30px
+  height: 30px
+  padding: 0
+  border-radius: 0 5px 5px 0
+  background-color: $accent
+  border: 0
+  +trans
+  transform: translateX(-100%)
+  +r(992)
+    display: block
+  &:focus
+    outline: none
+  &.is-active
+    transform: translateX(0)
+  &__icon
+    width: 15px
+    height: 15px
+    fill: #fff

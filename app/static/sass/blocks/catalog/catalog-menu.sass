@@ -1,0 +1,71 @@
+.catalog-menu
+  margin: 0 0 30px
+  padding: 0
+  list-style: none
+  display: flex
+  flex-wrap: wrap
+  li
+    width: 25%
+    +r(1259)
+      width: 50%
+    +r(480)
+      width: 100%
+    &:first-child
+      a
+        border-radius: 5px 0 0 5px
+        +r(1259)
+          border-radius: 5px 0 0 0
+        +r(480)
+          border-radius: 5px 5px 0 0
+    &:nth-child(2)
+      a
+        +r(1259)
+          border-radius: 0 5px 0 0
+          border-right: 1px solid $border-color
+        +r(480)
+          border-radius: 0
+    &:nth-last-child(-n+2)
+      a
+        +r(1259)
+          border-bottom: 1px solid $border-color
+    &:nth-last-child(2)
+      a
+        +r(1259)
+          border-radius: 0 0 0 5px
+        +r(480)
+          border-radius: 0
+          border-bottom: 0
+    &:last-child
+      a
+        border-right: 1px solid $border-color
+        border-radius: 0 5px 5px 0
+        +r(1259)
+          border-radius: 0 0 5px 0
+        +r(480)
+          border-radius: 0 0 5px 5px
+    &.is-active
+      a
+        background-color: $accent
+        border-color: $accent
+        color: #fff
+  a
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 100%
+    padding: 12px 15px
+    text-align: center
+    border: 1px solid $border-color
+    border-right: 0
+    font-size: 18px
+    color: $dove-gray
+    +r(1259)
+      font-size: 16px
+      // border-right: 1px solid $border-color
+      border-bottom: 0
+    +r(480)
+      border-right: 1px solid $border-color
+    &:hover, &:focus
+      background-color: $accent
+      border-color: $accent
+      color: #fff

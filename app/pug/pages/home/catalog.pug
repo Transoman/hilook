@@ -3,6 +3,34 @@ section.s-catalog
     h2.section-title Каталог камеры Hilook
 
     .row
-      .col-xl-3
+      .col-lg-4.col-xl-3
+        button(type="button").sidebar-open
+          +icon('filter', 'sidebar-open__icon')
         aside.sidebar
+          
+          button(type="button").sidebar__close.btn-close
           include ../../modules/filter/filter
+          .banner
+            img(src="static/images/content/banner-270-270.jpg", alt="")
+
+      .col-lg-8.col-xl-9
+        ul.catalog-menu
+          li.is-active
+            a(href="#") IP-оборудование
+          li
+            a(href="#") HDTV оборудование
+          li
+            a(href="#") Видеодомофоны
+          li
+            a(href="#") Видеодомофоны
+
+        .row
+          include ../../modules/product/product-card
+          include ../../modules/product/product-card
+          include ../../modules/product/product-card
+          include ../../modules/product/product-card
+          include ../../modules/product/product-card
+          include ../../modules/product/product-card
+
+    .banner
+      img(src="static/images/content/banner-1170-150.jpg", alt="")
