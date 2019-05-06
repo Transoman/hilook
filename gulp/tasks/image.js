@@ -24,7 +24,11 @@ module.exports = function () {
                     max: 75,
                     quality: 'medium'
                 }),
-                gp.imagemin.svgo(),
+                gp.imagemin.svgo({
+                    plugins: [
+                        {removeViewBox: false}
+                    ]
+                }),
                 gp.imagemin.optipng({optimizationLevel: 3}),
                 pngquant({quality: '65-70', speed: 5})
             ], {
@@ -32,4 +36,8 @@ module.exports = function () {
             })))
             .pipe($.gulp.dest(imgPATH.ouput));
     });
+
+    $.gulp.task('clear', () =>
+        gp.cache.clearAll()
+    );
 };
