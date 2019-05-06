@@ -1,0 +1,193 @@
+.container
+  .breadcrumbs
+    a(href="#") Главная
+    a(href="#") Каталог
+    a(href="#") IP-оборудование
+    a(href="#") Мини-камеры
+    span HiWatch DS-I114
+
+main.product
+  .container
+    .row
+      .col-lg-6.col-xl-5
+        .product__gallery
+          .product-slider.swiper-container
+            .swiper-wrapper
+              .swiper-slide.product-slider__item
+                a(href="static/images/content/product-1.jpg", data-fancybox="gallery")
+                  img(src="static/images/content/product-1.jpg", alt="")
+              .swiper-slide.product-slider__item
+                a(href="static/images/content/product-1.jpg", data-fancybox="gallery")
+                  img(src="static/images/content/product-1.jpg", alt="")
+              .swiper-slide.product-slider__item
+                a(href="static/images/content/product-1.jpg", data-fancybox="gallery")
+                  img(src="static/images/content/product-1.jpg", alt="")
+              .swiper-slide.product-slider__item
+                a(href="static/images/content/product-1.jpg", data-fancybox="gallery")
+                  img(src="static/images/content/product-1.jpg", alt="")
+              .swiper-slide.product-slider__item
+                a(href="static/images/content/product-1.jpg", data-fancybox="gallery")
+                  img(src="static/images/content/product-1.jpg", alt="")
+            .swiper-pagination
+
+          .product-thumb-slider.swiper-container
+            .swiper-wrapper
+              .swiper-slide.product-thumb-slider__item.active
+                img(src="static/images/content/product-sm-1.jpg", alt="")
+              .swiper-slide.product-thumb-slider__item
+                img(src="static/images/content/product-sm-1.jpg", alt="")
+              .swiper-slide.product-thumb-slider__item
+                img(src="static/images/content/product-sm-1.jpg", alt="")
+              .swiper-slide.product-thumb-slider__item
+                img(src="static/images/content/product-sm-1.jpg", alt="")
+              .swiper-slide.product-thumb-slider__item
+                img(src="static/images/content/product-sm-1.jpg", alt="")
+            .swiper-button-prev
+            .swiper-button-next
+
+      .col-lg-6.col-xl-7
+        .product__summary
+          h1.product__title HiWatch DS-I114
+          .product__features
+            strong Ключевые особенности:
+            ul
+              li Разрешение 1 Мп;
+              li DWDR;
+              li PIR-датчик;
+              li Встроенные микрофон и динамик;
+              li ИК-подсветка до 10 м;
+              li Поддержка PoE.
+
+          p.price 22 917
+            span.price__currency  тг.
+          
+          .product__links
+            a(href="#", target="_blank") Прошивка
+            a(href="#", target="_blank") Паспорт
+            a(href="#", target="_blank") Краткое руководство пользователя
+
+    .product__additional-info.row
+      .col-lg-6
+        .product-info
+          h3.product-info__title Камера
+          table.product-info__table
+            tr
+              th Матрица:
+              td 1/4 Progressive Scan CMOS
+            tr
+              th Чувствительность:
+              td 0.01лк @( F1.2, AGC вкл.), 0.028лк @F2.0, AGC вкл.) 0лк с ИК
+            tr
+              th Крепление объектива:
+              td М12
+            tr
+              th Объектив:
+              td 2.8мм @F2.0 (4мм, 6мм опция)
+            tr
+              th Угол обзора:
+              td 69° (2.8мм), 55° (4мм), 39° (6мм)
+            tr
+              th Электронный затвор:
+              td 1/3с ~ 1/100,000с
+            tr
+              th Режим «День/ночь»:
+              td Механический ИК-фильтр с автопереключением
+
+        .product-info
+          h3.product-info__title Сеть
+          table.product-info__table
+            tr
+              th Сетевое хранение данных:
+              td NAS (поддержка NFS,SMB/CIFS), локальное хранение
+            tr
+              th Срабатывание тревоги:
+              td Детектор движения, Оповещение при несанкционированных действиях
+            tr
+              th Протоколы:
+              td TCP/IP, ICMP, HTTP, HTTPS, FTP, DHCP, DNS, DDNS, RTP, RTSP, RTCP, PPPoE, NTP, UPnP
+            tr
+              th Защита:
+              td Защита паролем, двойной поток, водяные знаки, кнопка перезагрузки, пароль
+            tr
+              th Совместимость:
+              td NVIF, PSIA, CGI, ISAPI
+            tr
+              th Smart функции:
+              td Обнаружение вторжения в область, пересечения линии
+
+        .product-info
+          h3.product-info__title Основное
+          table.product-info__table
+            tr
+              th Дальность действия ИК:
+              td до 10м
+            tr
+              th PIR:
+              td Угол: 80° <br>Диапазон: 10м
+            tr
+              th Рабочие условия:
+              td -20°С — 45°С
+            tr
+              th Питание:
+              td 12В DC ± 10%, PoE (802.3af)
+            tr
+              th Потребляемая мощность:
+              td Макс. 5Вт
+            tr
+              th Размеры:
+              td 66×91.5×131.3 мм
+            tr
+              th Вес:
+              td 400гр.
+
+      .col-lg-6
+        .product-info
+          h3.product-info__title Стандарт сжатия
+          table.product-info__table
+            tr
+              th Формат видеосжатия:
+              td H.264
+            tr
+              th Битрейт видео:
+              td 32 кб/с ~ 8 Мб/с
+            tr
+              th Аудиосжатие:
+              td G.711/ G.722.1/G.726/MP2L2
+            tr
+              th Битрейт аудио:
+              td 64кб/с (G.711) / 16кб/с (G.726) / 32-128кб/с (MP2L2)
+
+        .product-info
+          h3.product-info__title Изображение
+          table.product-info__table
+            tr
+              th Макс.разрешение:
+              td H.264
+            tr
+              th Частота к/с:
+              td 32 кб/с ~ 8 Мб/с
+            tr
+              th Настройки изображения:
+              td G.711/ G.722.1/G.726/MP2L2
+            tr
+              th Улучшение изображения:
+              td 64кб/с (G.711) / 16кб/с (G.726) / 32-128кб/с (MP2L2)
+            tr
+              th ROI:
+              td Поддерживается
+
+        .product-info
+          h3.product-info__title Интерфейс
+          table.product-info__table
+            tr
+              th Сетевой интерфейс:
+              td 1 RJ45 10M /100M Ethernet
+            tr
+              th Интерфейс входа:
+              td Встроенные микрофон и динамик
+            tr
+              th Тревожный вход/выход:
+              td 1/1
+
+        .product__note
+          p На сайте указаны рекомендуемые розничные цены. <br>Просим уточнять актуальную стоимость оборудования у своего менеджера.

@@ -1,0 +1,31 @@
+.product-info
+  margin-bottom: 20px
+  &__title
+    margin-bottom: 20px
+    text-align: center
+  &__table
+    width: 100%
+    border: 1px solid $border-color
+    tr
+      border-bottom: 1px solid $border-color
+      &:last-child
+        border-bottom: 0
+    th
+      width: 200px
+      padding: 15px 0 15px 20px
+      border-right: 1px solid $border-color
+      font-weight: 400
+      +r(576)
+        display: block
+        width: auto
+        border-bottom: 1px solid $border-color
+        border-right: 0
+        text-align: center
+        padding: 15px
+    td
+      padding: 15px 5px 15px 30px
+      font-weight: 700
+      +r(576)
+        display: block
+        text-align: center
+        padding: 15px

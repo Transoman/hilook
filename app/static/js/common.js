@@ -3,7 +3,9 @@ var svg4everybody = require('svg4everybody'),
 noUiSlider = require('nouislider'),
 popup = require('jquery-popup-overlay'),
 Imask = require('imask'),
-select2 = require('select2-browserify');
+select2 = require('select2-browserify'),
+Swiper = require('swiper'),
+fancybox = require('@fancyapps/fancybox');
 
 
 jQuery(document).ready(function($) {
@@ -438,5 +440,69 @@ jQuery(document).ready(function($) {
       }
     });
   }
+
+  // Sliders
+  var productGallery = function() {
+    var productThumbItem = $('.product-thumb-slider__item');
+
+    var productThumbSlider = new Swiper('.product-thumb-slider', {
+      slidesPerView: 4,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        992: {
+          slidesPerView: 5,
+          spaceBetween: 30
+        },
+        767: {
+          slidesPerView: 4,
+          spaceBetween: 30
+        },
+        576: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        }
+      }
+    });
+
+    var productSlider = new Swiper('.product-slider', {
+      spaceBetween: 30,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+      },
+    });
+
+    productThumbItem.click(function(e) {
+      var activeIndex = productThumbSlider.clickedIndex;
+      productSlider.slideTo(activeIndex);
+      productThumbItem.removeClass('active');
+      $(this).addClass('active');
+    });
+
+    productSlider.on('slideChange', function() {
+      var currentItem = productSlider.activeIndex;
+      productThumbItem.removeClass('active');
+      productThumbSlider.slideTo(currentItem);
+      $(productThumbSlider.$wrapperEl).children().eq(currentItem).addClass('active');
+    });
+
+    $().fancybox({
+      selector : '[data-fancybox="gallery"]',
+      thumbs   : false,
+      hash     : false,
+      loop: true,
+      beforeClose : function(instance) {
+        if ($('.product-slider').length) {
+          productSlider.slideTo( instance.currIndex);
+        }
+      }
+    });
+  }
+
+  productGallery();
 
 });

@@ -1,1 +1,75 @@
 @import 'product-card'
+@import 'product-slider'
+@import 'product-thumb-slider'
+@import 'product-info'
+
+.product
+  &__gallery
+    +r(992)
+      margin-bottom: 30px
+  &__summary
+    .price
+      margin-bottom: 25px
+      font-size: 36px
+      font-weight: 800
+      color: $accent
+      &__currency
+        font-size: inherit
+        font-weight: 400
+        color: #a6a6a6
+  &__title
+    font-size: 36px
+    +r(767)
+      font-size: 32px
+    +r(576)
+      font-size: 30px
+  &__features
+    margin-bottom: 20px
+    font-size: 18px
+    strong
+      display: block
+      margin-bottom: 10px
+    ul
+      margin: 0
+      padding: 0
+      list-style: none
+      li
+        position: relative
+        padding-left: 10px
+        margin-bottom: 5px
+        &:last-child
+          margin-bottom: 0
+        &::before
+          content: ''
+          position: absolute
+          top: 8px
+          left: 0
+          width: 4px
+          height: 4px
+          border-radius: 50%
+          background-color: #a6a6a6
+  &__links
+    & > *:not(:last-child)
+      margin-right: 40px
+      +r(767)
+        margin-right: 30px
+    a
+      display: inline-block
+      vertical-align: middle
+      margin-bottom: 10px
+      font-size: 18px
+      color: $main-color
+      text-decoration: underline
+      &:hover
+        text-decoration: none
+        color: lighten($accent, 10%)
+      &:focus
+        text-decoration: none
+        outline: none
+        color: darken($accent, 10%)
+  &__additional-info
+    margin-top: 75px
+  &__note
+    margin-top: 40px
+    font-style: italic
+    font-weight: 700
