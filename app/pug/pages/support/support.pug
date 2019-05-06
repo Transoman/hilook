@@ -1,0 +1,31 @@
+.container
+  .breadcrumbs
+    a(href="#") Главная
+    span Поддержка
+
+main.support
+  .container
+    h2.page-title Тех. поддержка
+
+    form(action="#").support__form.ajax-form
+      .row
+        .col-md-6
+          .form-group
+            input(type="text", name="name", placeholder="Ваше имя*", required).form-field
+          .form-group
+            input(type="tel", name="phone", placeholder="Ваш телефон*", required).form-field
+          .form-group
+            input(type="email", name="email", placeholder="Ваш E-mail*", required).form-field
+          .form-group
+            input(type="text", name="position", placeholder="Должность").form-field
+          .form-group
+            input(type="text", name="company", placeholder="Компания").form-field
+        .col-md-6
+          .form-group
+            input(type="text", name="device", placeholder="Используемое устройство").form-field
+          .form-group
+            input(type="text", name="serial_number", placeholder="Серийный номер").form-field
+          .form-group
+            textarea(name="message", placeholder="Ваш вопрос").form-field.form-field--textarea
+      .text-center
+        input(type="submit", value="Отправить").btn
