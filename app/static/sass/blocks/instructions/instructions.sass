@@ -1,0 +1,21 @@
+.instructions-list
+  margin: 0
+  padding: 0
+  list-style: none
+  column-count: 4
+  column-gap: 80px
+  +r(1259)
+    column-count: 3
+  +r(992)
+    column-count: 2
+  +r(576)
+    column-count: 1
+  &__item
+    display: inline-block
+    vertical-align: top
+    width: 100%
+    margin-bottom: 25px
+  &__link
+    font-size: 18px
+    color: $main-color
+    text-decoration: underline
