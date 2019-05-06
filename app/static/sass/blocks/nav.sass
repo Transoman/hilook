@@ -7,13 +7,40 @@
   & > *:not(:last-child)
     margin-right: 35px
   li
+    position: relative
     &.is-active
       a
         color: $accent
+    &:hover
+      & > .sub-menu
+        opacity: 1
+        visibility: visible
   a
+    padding-bottom: 10px
     color: $main-color
     &:hover, &:focus
       color: $accent
+
+.sub-menu
+  position: absolute
+  top: calc(100% + 10px)
+  left: 0
+  margin: 0
+  padding: 0
+  list-style: none
+  width: 200px
+  background-color: #fff
+  box-shadow: 0 5px 15px rgba(#000, 0.1)
+  z-index: 10
+  opacity: 0
+  visibility: hidden
+  +trans
+  a
+    display: block
+    padding: 10px 15px
+    &:hover, &:focus
+      background-color: $accent
+      color: #fff
 
 .nav-toggle
   display: none
