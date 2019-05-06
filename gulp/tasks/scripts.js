@@ -19,6 +19,15 @@ module.exports = function () {
         }));
     });
 
+    $.gulp.task('other-js:dev', () => {
+        return $.gulp.src(scriptsPATH.input + '*.js')
+        .pipe(gp.plumber())
+        .pipe($.gulp.dest(scriptsPATH.ouput))
+        .pipe($.browserSync.reload({
+            stream: true
+        }));
+    });
+
     $.gulp.task('js:build-min', () => {
         return browserify(scriptsPATH.input + 'common.js')
         .bundle()

@@ -5,7 +5,8 @@ popup = require('jquery-popup-overlay'),
 Imask = require('imask'),
 select2 = require('select2-browserify'),
 Swiper = require('swiper'),
-fancybox = require('@fancyapps/fancybox');
+fancybox = require('@fancyapps/fancybox'),
+Raphael  = require('raphael');
 
 
 jQuery(document).ready(function($) {
@@ -504,5 +505,84 @@ jQuery(document).ready(function($) {
   }
 
   productGallery();
+
+  var vectorMap = function() {
+    if ($('.partners__map').length){
+      var script = document.createElement('script');
+      script.setAttribute('src', 'static/js/paths.js');
+      $(script).insertBefore('script:last-of-type');
+
+      $(function(){
+        var r = Raphael('partners-map', '100%', 500),
+          attributes = {
+            fill: '#fff',
+            stroke: '#333',
+            'stroke-width': 1,
+            'stroke-linejoin': 'round'
+          },
+          arr = new Array();
+          r.setViewBox(0,0,810,500,true);
+          r.setSize('100%', '100%');
+
+          for (var country in paths) {
+            var obj = r.path(paths[country].path);
+            obj.attr(attributes);
+            arr[obj.id] = country;
+
+            obj.hover(function() {
+              if ($('.point span').html() === '') {
+                $('.point').addClass('is-active');
+              }
+              $('.point span').html(paths[arr[this.id]].name);
+              
+              if ($(window).width() > 767) {
+                var point = this.getBBox(0);
+                // $('#partners-map').next('.point').remove();
+                // $('#partners-map').after($('<div />').addClass('point'));
+                
+
+                $('.point').css({
+                    left: point.x+(point.width/2)-80,
+                    top: point.y+(point.height/2)-20
+                  }).addClass('is-active');
+                $('.partners__map').mouseleave(function() {
+                  $('.point').removeClass('is-active');
+                });
+              }
+              
+              this.animate({
+                fill: '#0f8bc2',
+                stroke: '#0f8bc2'
+              }, 300);
+              
+            }, function() {
+              this.animate({
+                fill: attributes.fill,
+                stroke: attributes.stroke
+              }, 300);
+            })
+            .click(function(){
+              document.location.hash = arr[this.id];
+              var link = paths[arr[this.id]].link;
+              if (link != 'undefined') {
+                location.href = link;
+              }
+            });
+
+            $('.point').find('.close').on('click', function(){
+              var t = $(this),
+                  parent = t.parent('.point');
+
+              parent.fadeOut(function() {
+                parent.remove();
+              });
+              return false;
+            });
+          }
+      });
+    }
+  }
+
+  vectorMap();
 
 });

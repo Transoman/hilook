@@ -53,6 +53,7 @@
     "jquery": "^3.3.1",
     "jquery-popup-overlay": "^2.1.1",
     "nouislider": "^13.1.5",
+    "raphael": "^2.2.8",
     "select2": "^4.0.7-rc.0",
     "select2-browserify": "^3.4.5",
     "svg4everybody": "^2.1.9",

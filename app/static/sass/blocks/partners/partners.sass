@@ -1,0 +1,51 @@
+.partners
+  &__map
+    position: relative
+    max-width: 810px
+    margin: 0 auto
+    svg
+      width: 100%
+    .point
+      position: absolute
+      z-index: 10
+      display: flex
+      opacity: 0
+      visibility: hidden
+      align-items: center
+      padding: 8px 30px 8px 8px
+      font-size: 14px
+      font-family: $main-font
+      background-color: #fff
+      box-shadow: 0 10px 25px rgba($header-link-color, 0.1)
+      border-radius: 25px
+      white-space: nowrap
+      +trans
+      +r(767)
+        position: static
+      &.is-active
+        opacity: 1
+        visibility: visible
+      &__icon
+        width: 17px
+        height: 17px
+        fill: $accent
+        &-wrap
+          position: relative
+          width: 34px
+          height: 34px
+          border-radius: 50px
+          border: 1px solid $border-color
+          display: flex
+          align-items: center
+          justify-content: center
+          margin-right: 10px
+          flex-shrink: 0
+          &::before
+            content: ''
+            position: absolute
+            top: -5px
+            right: -5px
+            bottom: -5px
+            left: -5px
+            border-radius: inherit
+            border: 1px solid rgba($border-color, 0.6)
