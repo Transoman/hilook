@@ -19,7 +19,7 @@ module.exports = function () {
         }));
     });
 
-    $.gulp.task('other-js:dev', () => {
+    $.gulp.task('other-js', () => {
         return $.gulp.src(scriptsPATH.input + '*.js')
         .pipe(gp.plumber())
         .pipe($.gulp.dest(scriptsPATH.ouput))

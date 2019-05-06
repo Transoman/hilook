@@ -8,6 +8,11 @@
     $product_name = isset($_POST['product_name']) ? htmlspecialchars(trim($_POST['product_name'])) : '';
     $message = isset($_POST['message']) ? htmlspecialchars(trim($_POST['message'])) : '';
     $subject = isset($_POST['subject']) ? htmlspecialchars(trim($_POST['subject'])) : '';
+    $position = isset($_POST['position']) ? htmlspecialchars(trim($_POST['position'])) : '';
+    $company = isset($_POST['company']) ? htmlspecialchars(trim($_POST['company'])) : '';
+    $device = isset($_POST['device']) ? htmlspecialchars(trim($_POST['device'])) : '';
+    $serial_number = isset($_POST['serial_number']) ? htmlspecialchars(trim($_POST['serial_number'])) : '';
+
     $to = 'Elena357910@yandex.com';
     $no_reply = 'no-reply@silk-its.com';
 
@@ -28,6 +33,18 @@
     }
     if ($product_name) {
       $data .= 'Товар: '.$product_name."<br>";
+    }
+    if ($position) {
+      $data .= 'Должность: '.$position."<br>";
+    }
+    if ($company) {
+      $data .= 'Компания: '.$company."<br>";
+    }
+    if ($device) {
+      $data .= 'Используемое устройство: '.$device."<br>";
+    }
+    if ($serial_number) {
+      $data .= 'Серийный номер: '.$serial_number."<br>";
     }
     if ($message) {
       $data .= 'Сообщение: <p>'.$message."</p><br>";
