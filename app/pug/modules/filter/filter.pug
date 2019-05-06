@@ -5,8 +5,8 @@
       .filter__item
         span.filter__item-title Стоимость,руб
         .form-inline
-          input(type="text", name="price_from", min="400" placeholder="от").filter__input-price.filter__input-price--from
-          input(type="text", name="price_to", max="9900" placeholder="до").filter__input-price.filter__input-price--to
+          input(type="number", name="price_from", min="400" placeholder="от").form-field.filter__input-price.filter__input-price--from
+          input(type="number", name="price_to", max="9900" placeholder="до").form-field.filter__input-price.filter__input-price--to
         .filter__price-range
       .filter__item
         span.filter__item-title Наличие

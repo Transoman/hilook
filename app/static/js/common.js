@@ -537,10 +537,6 @@ jQuery(document).ready(function($) {
               
               if ($(window).width() > 767) {
                 var point = this.getBBox(0);
-                // $('#partners-map').next('.point').remove();
-                // $('#partners-map').after($('<div />').addClass('point'));
-                
-
                 $('.point').css({
                     left: point.x+(point.width/2)-80,
                     top: point.y+(point.height/2)-20
@@ -549,12 +545,11 @@ jQuery(document).ready(function($) {
                   $('.point').removeClass('is-active');
                 });
               }
-              
               this.animate({
                 fill: '#0f8bc2',
                 stroke: '#0f8bc2'
               }, 300);
-              
+
             }, function() {
               this.animate({
                 fill: attributes.fill,
