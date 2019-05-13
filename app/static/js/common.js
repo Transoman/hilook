@@ -506,6 +506,18 @@ jQuery(document).ready(function($) {
 
   productGallery();
 
+  new Swiper('.hero-slider', {
+    spaceBetween: 30,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
   var vectorMap = function() {
     if ($('.partners__map').length){
       var script = document.createElement('script');

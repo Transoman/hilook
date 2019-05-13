@@ -1,0 +1,21 @@
+.hero-slider
+  &__item
+    position: relative
+    z-index: 1
+    height: auto
+    padding: 95px 0 110px
+    background:
+      repeat: no-repeat
+      position: center
+      size: cover
+    +r(767)
+      padding: 50px 0
+      &::before
+        content: ''
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        background-color: rgba(#fff, 0.55)
+        z-index: -1
