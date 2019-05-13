@@ -1,0 +1,28 @@
+.widget
+  padding: 20px 15px
+  background-color: #fff
+  box-shadow: 0 10px 40px rgba($shadow-color, 0.08)
+  border-radius: 5px
+  border: 1px solid $line-color
+  margin-bottom: 30px
+  &:last-child
+    margin-bottom: 0
+  &__title
+    margin-bottom: 10px
+    font-size: 18px
+    font-weight: 700
+  ul
+    margin: 0 -15px
+    padding: 0
+    list-style: none
+    li
+      &.is-active
+        a
+          background-color: $accent
+          color: #fff
+    a
+      display: block
+      padding: 10px 15px
+      &:hover, &:focus
+        background-color: $accent
+        color: #fff
