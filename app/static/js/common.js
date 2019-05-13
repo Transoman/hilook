@@ -508,6 +508,11 @@ jQuery(document).ready(function($) {
 
   new Swiper('.hero-slider', {
     spaceBetween: 30,
+    loop: true,
+    speed: 1000,
+    autoplay: {
+      delay: 5000,
+    },
     pagination: {
       el: '.swiper-pagination',
       type: 'bullets',
